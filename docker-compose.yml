@@ -1,0 +1,28 @@
+version: '3.8'
+
+services:
+  jupyter:
+    build: .
+    ports:
+      - "8888:8888"
+    volumes:
+      - .:/app
+      - ml_data:/app/data
+      - ml_models:/app/models
+    environment:
+      - JUPYTER_TOKEN=mlproject  # Set a token for Jupyter authentication
+    command: jupyter notebook --ip=0.0.0.0 --port=8888 --no-browser --allow-root --NotebookApp.token=mlproject
+
+  training:
+    build: .
+    volumes:
+      - .:/app
+      - ml_data:/app/data
+      - ml_models:/app/models
+    command: python src/train.py
+    profiles:
+      - training
+
+volumes:
+  ml_data:  # Persistent volume for data
+  ml_models:  # Persistent volume for trained models
