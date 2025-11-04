@@ -3,7 +3,7 @@
 {
 	"name": "Python 3",
 	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
-	"image": "mcr.microsoft.com/devcontainers/python:2-3.9-bookworm"
+	"image": "mcr.microsoft.com/devcontainers/python:2-3.9-bookworm",
 
 	// Features to add to the dev container. More info: https://containers.dev/features.
 	"features": {
@@ -11,7 +11,7 @@
 	},
 
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
-	"forwardPorts": [8888],
+	"forwardPorts": [8888]
 
 	// Use 'postCreateCommand' to run commands after the container is created.
 	// "postCreateCommand": "pip3 install --user -r requirements.txt",
